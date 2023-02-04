@@ -39,8 +39,9 @@ from tinydb import TinyDB, Query
 db = TinyDB('db.json')
 sapi = SafoneAPI()
 
-app = Client("spider",api_id,api_hash,workers=50) #spider_s
-bot = Client("spider_bot",api_id,api_hash,bot_token=bot) 
+app = Client("spider",api_id,api_hash,workers=50) #pyrogram userbot client 
+bot = Client("spider_bot",api_id,api_hash,bot_token=bot) # pyrogram bot client 
+ptb = Application.builder().token(bot).concurrent_updates(8).connection_pool_size(16).build() #python-telegram-bot client 
 bot.start()
 
 async def progress(current, total):
