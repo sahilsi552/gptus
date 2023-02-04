@@ -1,8 +1,8 @@
 usrs = ["me",491634139,705138975]
 owner = 5935034287
-bot = "6191486476:AAFwd_ePg71K4dTrTlUYfZ0sF4LYNpks_yc"
-api_id = 728044
-api_hash = "a41ddadc9696482aff94a4b37221574a"
+bot = "1234566:djsjfjhkfkskaskdkdk"
+api_id = 793567
+api_hash = "gjdkgjmfmssmdmfmfmcmdxxn"
 
 
 from pyrogram import Client, filters 
