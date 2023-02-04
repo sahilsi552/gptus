@@ -12,6 +12,8 @@ from pyrogram.enums import ChatMemberStatus,ChatType
 from async_eval import eval
 import datetime
 import telegram
+from telegram.ext import Application
+from telegram.constants import ParseMode
 import os
 import asyncio
 import platform
@@ -29,7 +31,6 @@ import json
 import gtts
 import wget
 import re
-import googletrans
 from gtts import gTTS as tts
 import speedtest
 import pyrogram
@@ -40,8 +41,9 @@ db = TinyDB('db.json')
 sapi = SafoneAPI()
 
 app = Client("spider",api_id,api_hash,workers=50) #pyrogram userbot client 
-bot = Client("spider_bot",api_id,api_hash,bot_token=bot) # pyrogram bot client 
-ptb = Application.builder().token(bot).concurrent_updates(8).connection_pool_size(16).build() #python-telegram-bot client 
+bot = Client("spider_bot",api_id,api_hash,bot_token=bot_token) # pyrogram bot client 
+ptb = Application.builder().token(bot_token).concurrent_updates(8).connection_pool_size(16).build() #python-telegram-bot client 
+
 bot.start()
 
 async def progress(current, total):
