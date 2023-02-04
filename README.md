@@ -2,8 +2,11 @@
 for testing one line codes of python code in telegram 
  How to use:
 
-send a photo
+
 Command : !eval or .eval or /eval 
+
+send a photo
+
 .eval await c.send_photo("asgj.jpg")
 
 get message details that's you reply
