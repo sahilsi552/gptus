@@ -1,6 +1,6 @@
 usrs = ["me",491634139,705138975]
 owner = 5935034287
-bot = "1234566:djsjfjhkfkskaskdkdk"
+bot_token = "1234566:djsjfjhkfkskaskdkdk"
 api_id = 793567
 api_hash = "gjdkgjmfmssmdmfmfmcmdxxn"
 
