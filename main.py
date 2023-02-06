@@ -18,7 +18,6 @@ from telegram.ext import Application
 from telegram.constants import ParseMode
 import os
 import asyncio
-import platform
 import yt_dlp
 import emoji
 import math
