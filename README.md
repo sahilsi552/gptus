@@ -20,18 +20,18 @@ Command : !eval or .eval or /eval
 
 ```.eval m.reply_to_message```
 
-```.eval m.reply("gjdk")```
+```.eval await m.reply("gjdk")```
 
 ```.eval any_one_line_code```
 
 # using python-telegram-bot client...
 
-```.eval ptb.send_message(...)```
+```.eval await ptb.send_message(...)```
 
 # using telethon client...
 
-```.eval telethon.send_message(...)```
+```.eval await telethon.send_message(...)```
 
 # using pyrogram bot client...
 
-```.eval bot.send_message(...)```
+```.eval await bot.send_message(...)```
