@@ -1,3 +1,7 @@
+**Install requirements:**
+
+```pip3 install requirements.txt```
+
 **Install all modules imported in library maybe i missed some modules**
 
 ___replace values and run codes:___
