@@ -41,3 +41,7 @@ Command : !eval or .eval or /eval
 ```.eval await bot.send_message(...)```
 
 #use any installed module...
+
+**download speed test**
+.eval str((speedtest.Speedtest(). upload())/
+(1024*1024)) + " Mbps"
