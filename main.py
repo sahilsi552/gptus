@@ -44,8 +44,8 @@ sapi = SafoneAPI()
 app = Client("spider",api_id,api_hash,workers=50) #pyrogram userbot client 
 bot = Client("spider_bot",api_id,api_hash,bot_token=bot_token) # pyrogram bot client 
 ptb = Application.builder().token(bot_token).concurrent_updates(8).connection_pool_size(16).build() #python-telegram-bot client 
-telethon = TelegramClient("telethon", api_id, api_hash) #telethon client 
-telethon.start(bot_token=bot_token)
+tlbot = TelegramClient("telethon", api_id, api_hash) #telethon client 
+tlbot.start(bot_token=bot_token)
 bot.start()
 
 async def progress(current, total):
