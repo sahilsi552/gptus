@@ -10,7 +10,6 @@ emoji
 gTTS
 wget
 calendar-cli
-maths
 speedtest
 tinydb==4.7.1
 Telethon==1.27.0
