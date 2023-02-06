@@ -14,6 +14,7 @@ from pyrogram.enums import ChatMemberStatus,ChatType
 from async_eval import eval
 import datetime
 import telegram
+import cv2
 from telegram.ext import Application
 from telegram.constants import ParseMode
 import os
