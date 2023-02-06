@@ -42,5 +42,6 @@ Command : !eval or .eval or /eval
 
 #use any installed module...
 
-**download speed test**
+**download speed test (in bytes) **
+
 ```.eval speedtest.Speedtest().upload()```
