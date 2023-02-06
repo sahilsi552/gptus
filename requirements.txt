@@ -2,7 +2,8 @@ async-eval==0.1.11
 pyrogram==2.0.97
 python-telegram-bot==20.0
 yt-dlp
-gTTS
+gtts
+wget
 speedtest
 tinydb==4.7.1
 Telethon==1.27.0
