@@ -1,6 +1,6 @@
 **Install requirements:**
 
-```pip3 install requirements.txt```
+```pip3 install -r requirements.txt```
 
 **Install all modules imported in library maybe i missed some modules**
 
