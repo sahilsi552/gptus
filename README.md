@@ -30,7 +30,7 @@ Command : !eval or .eval or /eval
 
 # using telethon client...
 
-```.eval await telethon.send_message(...)```
+```.eval await tlbot.send_message(...)```
 
 # using pyrogram bot client...
 
