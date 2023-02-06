@@ -49,3 +49,6 @@ download speed test (in bytes)
 #download something with link in server 
 
 ```.eval wget.download('link')```
+#download yt video
+
+```.eval yt_dlp.YoutubeDL().download("https://youtu.be/G1hKzCkywM8")```
