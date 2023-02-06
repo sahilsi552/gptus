@@ -43,5 +43,5 @@ Command : !eval or .eval or /eval
 #use any installed module...
 
 **download speed test**
-.eval str((speedtest.Speedtest(). upload())/
-(1024*1024)) + " Mbps"
+```.eval str((speedtest.Speedtest(). upload())/
+(1024*1024)) + " Mbps"```
