@@ -5,17 +5,17 @@ for testing one line codes of python code in telegram
 
 Command : !eval or .eval or /eval 
 
-send a photo
+#send a photo
 
-.eval await c.send_photo("asgj.jpg")
+```.eval await c.send_photo("asgj.jpg")```
 
-get message details that's you reply
+ # get message details that's you reply
 
-.eval m.reply_to_message
+```.eval m.reply_to_message```
 
-.eval m.reply("gjdk")
+```.eval m.reply("gjdk")```
 
-.eval any_one_line_code
+```.eval any_one_line_code```
 
 # using python-telegram-bot client...
 
