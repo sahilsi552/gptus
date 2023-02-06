@@ -1,4 +1,4 @@
-~~~ Install all modules imported in library maybe i missed some modules~~~
+**Install all modules imported in library maybe i missed some modules**
 replace values and run codes:
 
 ```python3 main.py```
