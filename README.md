@@ -4,7 +4,7 @@
 
 **Install all modules imported in library maybe i missed some modules**
 
-___replace values and run codes:___
+___replace values and run code:___
 
 ```python3 main.py```
 
