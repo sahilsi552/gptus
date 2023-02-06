@@ -8,8 +8,8 @@ api_hash = "gjdkgjmfmssmdmfmfmcmdxxn"
 from pyrogram import Client, filters 
 from pyrogram.raw import functions, types
 import time
-from telethon import TelegramClient, sync
 import telethon
+from telethon import TelegramClient, sync
 from pyrogram.enums import ChatMemberStatus,ChatType
 from async_eval import eval
 import datetime
@@ -17,6 +17,7 @@ import telegram
 from telegram.ext import Application
 from telegram.constants import ParseMode
 import os
+import io
 import asyncio
 import yt_dlp
 import emoji
@@ -43,7 +44,7 @@ sapi = SafoneAPI()
 app = Client("spider",api_id,api_hash,workers=50) #pyrogram userbot client 
 bot = Client("spider_bot",api_id,api_hash,bot_token=bot_token) # pyrogram bot client 
 ptb = Application.builder().token(bot_token).concurrent_updates(8).connection_pool_size(16).build() #python-telegram-bot client 
-tlbot = TelegramClient("telethon", api_id, api_hash) #telethon client 
+tlbot = TelegramClient("telethon", api_id, api_hash)
 tlbot.start(bot_token=bot_token)
 bot.start()
 
