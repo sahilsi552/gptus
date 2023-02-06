@@ -3,7 +3,7 @@ pyrogram==2.0.97
 python-telegram-bot==20.0
 yt-dlp
 emoji
-gtts
+gTTS
 wget
 speedtest
 tinydb==4.7.1
