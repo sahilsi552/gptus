@@ -1,4 +1,10 @@
+~~~ Install all modules imported in library maybe i missed some modules~~~
+replace values and run codes:
+
+```python3 main.py```
+
 # eval_telegram_bot
+
 for testing one line codes of python code in telegram 
  How to use:
 
