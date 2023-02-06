@@ -16,3 +16,15 @@ get message details that's you reply
 .eval m.reply("gjdk")
 
 .eval any_one_line_code
+
+# using python-telegram-bot client...
+
+```.eval ptb.send_message(...)```
+
+# using telethon client...
+
+```.eval telethon.send_message(...)```
+
+# using pyrogram bot client...
+
+```.eval bot.send_message(...)```
