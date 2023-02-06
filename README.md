@@ -45,3 +45,7 @@ Command : !eval or .eval or /eval
 download speed test (in bytes)
 
 ```.eval speedtest.Speedtest().upload()```
+
+#download something with link in server 
+
+```.eval wget.download('https://telegra.ph/file/680362d6be9e9066565ec.mp4')```
