@@ -9,6 +9,7 @@ from pyrogram import Client, filters
 from pyrogram.raw import functions, types
 import time
 from telethon import TelegramClient, sync
+import telethon
 from pyrogram.enums import ChatMemberStatus,ChatType
 from async_eval import eval
 import datetime
