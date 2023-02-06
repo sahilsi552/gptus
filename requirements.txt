@@ -5,6 +5,7 @@ yt-dlp
 emoji
 gTTS
 wget
+maths
 speedtest
 tinydb==4.7.1
 Telethon==1.27.0
