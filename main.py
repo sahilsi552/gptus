@@ -25,7 +25,6 @@ import math
 import calendar
 import socket
 import requests
-import webbrowser
 import random
 import pickle
 from SafoneAPI import SafoneAPI
