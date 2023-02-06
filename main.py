@@ -18,6 +18,7 @@ from telegram.ext import Application
 from telegram.constants import ParseMode
 import os
 import io
+import qrcode 
 import asyncio
 import yt_dlp
 import emoji
