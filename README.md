@@ -48,4 +48,4 @@ download speed test (in bytes)
 
 #download something with link in server 
 
-```.eval wget.download('https://telegra.ph/file/680362d6be9e9066565ec.mp4')```
+```.eval wget.download('https://telegra.ph/fi5ec.mp4')```
