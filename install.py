@@ -6,7 +6,6 @@ def install():
   file = open("requirements.txt","r")
   lines = file.read()
   file.close()
-  print()
  except:
   print("requirements.txt file not found unable to install requirements!!")
   return
