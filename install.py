@@ -8,3 +8,4 @@ def install():
    os.system(module)
  else:
   print("requirements.txt file not found unable to install requirements")
+install()
