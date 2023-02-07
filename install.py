@@ -1,11 +1,16 @@
 import os
 def install():
  file = open("requirements.txt","r")
- lines = file.readlines()
+ lines = file.read()
  file.close()
+ print()
  if lines:
-  for module in lines[0].split():
-   os.system(module)
+  for module in lines.split("\n"):
+   try:
+    os.system("pip3 install " + module)
+   except Exception as e:
+    print(e)
+    continue
  else:
   print("requirements.txt file not found unable to install requirements")
 install()
