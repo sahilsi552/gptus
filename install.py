@@ -1,6 +1,7 @@
 #Install requirements.txt using python..
 
 import os
+
 def install():
  try:
   file = open("requirements.txt","r")
@@ -16,4 +17,5 @@ def install():
     print(e)
     continue
  print("Requirements installed successfully!")
+
 install()
