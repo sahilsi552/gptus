@@ -16,4 +16,5 @@ def install():
    except Exception as e:
     print(e)
     continue
+ print("Requirements installed successfully!")
 install()
