@@ -8,7 +8,7 @@ def install():
   file.close()
   print()
  except:
-  print("requirements.txt file not found unable to install requirements")
+  print("requirements.txt file not found unable to install requirements!!")
   return
  for module in lines.split("\n"):
    try:
