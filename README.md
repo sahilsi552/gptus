@@ -16,11 +16,11 @@ ___run code:___
 
 [__Your links will be automatically converted into text url__]
 
-[.addfilter {txt}] #reply to a message to add into filters
+[```.addfilter {txt}```] #reply to a message to add into filters
 
-[.rmfilter {txt}] #remove a filter
+[```.rmfilter {txt}```] #remove a filter
 
-[.filters {txt}] #check filters
+[```.filters {txt}```] #check filters
 
 filters are one single text code if you send that code then your filter text will automatically sent..
 
