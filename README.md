@@ -12,6 +12,8 @@ ___run code:___
 
 ```python3 main.py```
 
+#info about bot
+
 [__Your links will be automatically converted into text url__]
 
 [.addfilter {txt}] #reply to a message to add into filters
