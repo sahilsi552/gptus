@@ -12,6 +12,8 @@ ___run code:___
 
 ```python3 main.py```
 
+[__Your links will be automatically converted into text url__]
+
 # eval_telegram_bot
 
 for testing one line codes of python code in telegram 
