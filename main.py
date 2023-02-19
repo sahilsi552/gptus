@@ -154,7 +154,8 @@ async def rfilter(c,m):
    is_urls = []
    for entitys in m.entities:
     if entitys.type == pyrogram.enums.MessageEntityType.URL:
-     is_urls.append(True)
+     is_urls = True
+     break
    if is_urls:
     text = m.text
     entities = []
