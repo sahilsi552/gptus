@@ -151,15 +151,20 @@ async def rfilter(c,m):
   if m.chat.type == pyrogram.enums.ChatType.CHANNEL and (await c.get_chat_member(m.chat.id,(await app.get_me()).id)).status == pyrogram.enums.ChatMemberStatus.MEMBER:
     return
   if m.entities:
-   text = m.text
-   entities = []
-   for entity in m.entities:
-     if entity.type == pyrogram.enums.MessageEntityType.URL:
-        entities.append(m.text[entity.offset:(entity.offset+entity.length)])
-   entities = [e for e in Counter(entities)]
-   for entitynies in entities:
-      text = text.replace(entitynies,f"""<a href="{entitynies}">check link</a>""")
-   await m.edit(text,disable_web_page_preview=True)
+   is_urls = []
+   for entitys in m.entities:
+    if entitys.type == pyrogram.enums.MessageEntityType.URL:
+     is_urls.append(True)
+   if is_urls:
+    text = m.text
+    entities = []
+    for entity in m.entities:
+      if entity.type == pyrogram.enums.MessageEntityType.URL:
+         entities.append(m.text[entity.offset:(entity.offset+entity.length)])
+    entities = [e for e in Counter(entities)]
+    for entitynies in entities:
+       text = text.replace(entitynies,f"""<a href="{entitynies}">check link</a>""")
+    await m.edit(text,disable_web_page_preview=True)
   if not m.reply_to_message:
     return
   try:
