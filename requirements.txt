@@ -2,7 +2,7 @@ async-eval==0.1.11
 pyrogram==2.0.97
 qrcode
 python-telegram-bot==20.0
-opencv-python
+tgcrypto
 yt-dlp
 requests
 SafoneAPI
