@@ -19,7 +19,6 @@ from telegram.ext import Application
 from telegram.constants import ParseMode
 import os
 import io
-import cv2
 import sys
 import platform
 import qrcode
