@@ -12,7 +12,7 @@ def install():
   return
  for module in lines.split("\n"):
    try:
-    os.system("pip3 install " + module)
+    os.system(f"pip3 install {module}")
    except Exception as e:
     print(e)
     continue
