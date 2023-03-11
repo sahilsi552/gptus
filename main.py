@@ -24,6 +24,7 @@ import platform
 import qrcode
 import asyncio
 import yt_dlp
+from io import StringIO
 import emoji
 import math
 import calendar
@@ -67,10 +68,10 @@ async def pm(client,message):
   except Exception as e:
     vc = str(e)
   try:
-    await m.edit("Code : `" + text + "`\n\nResult : " + str(vc),disable_web_page_preview=True,parse_mode=pyrogram.enums.ParseMode.MARKDOWN)
+    await m.edit(f"Code : `{text}`\n\nResult : {str(vc)}",disable_web_page_preview=True,parse_mode=pyrogram.enums.ParseMode.MARKDOWN)
   except Exception as e:
    try:
-     await m.edit("Code : `" + text + """`\n\nResult : """ + str(e),disable_web_page_preview=True,parse_mode=pyrogram.enums.ParseMode.MARKDOWN)
+    await m.edit(f"Code : `{text}`\n\nResult : {str(e)}",disable_web_page_preview=True,parse_mode=pyrogram.enums.ParseMode.MARKDOWN)
    except:
      pass
    with open("Result.txt" , "w") as g:
@@ -87,6 +88,20 @@ async def pm(client,message):
 async def edit(c,m):
   await pm(c,m)
 
+@app.on_message (filters.command("exec",prefixes=[".","!","/"]) & (filters.user(usrs) | filters.channel)) 
+def compile_code(_,m): 
+    output = StringIO() 
+    sys.stdout= output
+    code = m.text[6:]
+    c = compile(code,"<string>","exec")
+    try:
+     exec(c)
+    except:
+     trace = traceback.format_exc()
+     m.edit_text(f"Code:\n`{code}`\n\nTraceback: \n{trace}",disable_web_page_preview=True,parse_mode=pyrogram.enums.ParseMode.MARKDOWN)
+    else:
+        result = output.getvalue()
+        m.edit_text(f"Code:\n`{code}`\n\nResult:\n{result if result else None}",disable_web_page_preview=True,parse_mode=pyrogram.enums.ParseMode.MARKDOWN)
 
 
 @app.on_message(filters.command("addfilter",prefixes=[".","!","/"]) & (filters.user("me") | filters.channel))
