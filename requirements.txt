@@ -4,6 +4,7 @@ qrcode
 python-telegram-bot==20.0
 tgcrypto
 yt-dlp
+CurrencyConverter
 requests
 SafoneAPI
 dotmap
