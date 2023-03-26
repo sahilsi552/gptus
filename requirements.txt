@@ -11,6 +11,7 @@ dotmap
 emoji
 gTTS
 wget
+bs4
 calendar-cli
 speedtest-cli
 tinydb==4.7.1
