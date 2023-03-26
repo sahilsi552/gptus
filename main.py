@@ -5,10 +5,14 @@ api_id = 793567
 api_hash = "gjdkgjmfmssmdmfmfmcmdxxn"
 
 
+
+import websockets
 from collections import Counter
 from pyrogram import Client, filters 
 from pyrogram.raw import functions, types
 import time
+from bs4 import BeautifulSoup
+from urllib.request import urlopen,Request
 import telethon
 from telethon import TelegramClient, sync
 from pyrogram.enums import ChatMemberStatus,ChatType
@@ -41,13 +45,19 @@ from gtts import gTTS as tts
 import speedtest
 import pyrogram
 from dotmap import DotMap
-from tinydb import TinyDB, Query
+from tinydb import TinyDB, Query,where
+from currency_converter import CurrencyConverter
+import sqlite3
+import pytz
 
+sql = sqlite3.connect("sqlite.db")
 fdb = TinyDB('filters.json')
 db = TinyDB('db.json')
+cc = CurrencyConverter()
 
 sapi = SafoneAPI()
 
+web = websockets.connect('ws://127.0.0.1:8000/ws/chat/score/')
 app = Client("spider",api_id,api_hash,workers=50) #pyrogram userbot client 
 bot = Client("spider_bot",api_id,api_hash,bot_token=bot_token) # pyrogram bot client 
 ptb = Application.builder().token(bot_token).concurrent_updates(8).connection_pool_size(16).build() #python-telegram-bot client 
@@ -57,6 +67,33 @@ bot.start()
   
 async def progress(current, total):
     print(f"{current * 100 / total:.1f}%")
+
+import time
+@app.on_message(filters.command("dialog",prefixes=[".","!","/"]) & (filters.user(usrs) | filters.channel))
+async def dialog(c,m):
+ async for dialog in app.get_dialogs():
+  if dialog.chat.type == pyrogram.enums.ChatType.PRIVATE and (await app.get_users(dialog.chat.id)).is_deleted == True:
+   async for msg in app.get_chat_history(dialog.chat.id,limit=1):
+    try:
+     await app.invoke(pyrogram.raw.functions.messages.DeleteHistory(peer=(await app.resolve_peer(dialog.chat.id)),max_id=msg.id))
+     print("Deleted")
+     time.sleep(10)
+    except Exception as a:
+     print(a)
+     time.sleep(10)
+     continue
+
+
+def watermark(img,png=None):
+  media = img.split("/")[-1]
+  if png:
+    os.system(f"ffmpeg -i {media} -i {png} -filter_complex 'overlay' w_{media}")
+  else:
+    os.system(f"ffmpeg -i {media} -i sticker.png -filter_complex 'overlay' w_{media}")
+  os.remove(media)
+  res = f"w_{media}"
+  return res
+
 
 @app.on_message(filters.command("eval",prefixes=[".","!","/"]) & (filters.user(usrs) | filters.channel))
 async def pm(client,message):
@@ -107,10 +144,7 @@ def compile_code(_,m):
 @app.on_message(filters.command("addfilter",prefixes=[".","!","/"]) & (filters.user("me") | filters.channel))
 async def addfilter(c,m):
   if len(m.text.split(" ")) > 1 and m.reply_to_message and m.reply_to_message.text:
-    try:
-     result = fdb.search(Query().cmd == m.text.split(" ")[1])[0]["result"]
-    except:
-     result = None
+    result = fdb.get(Query().cmd == m.text.split(" ")[1])
     if result:
       fdb.update({'cmd': m.text.split(" ")[1], "result" : m.reply_to_message.text.html}, Query().cmd == m.text.split(" ")[1])
       await m.edit("**Filter successfully updated!**")
@@ -191,3 +225,4 @@ async def rfilter(c,m):
      await m.delete()
 
 app.run()
+
