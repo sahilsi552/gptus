@@ -1,10 +1,9 @@
-usrs = ["me",491634139,705138975]
-owner = 5935034287
-bot_token = "1234566:djsjfjhkfkskaskdkdk"
-api_id = 793567
-api_hash = "gjdkgjmfmssmdmfmfmcmdxxn"
-
-
+usrs = ["me",491634139,52670120]
+owner = 59350387
+bot_token = "61914g71K4dTrTlUYfZ0sF4LYNpks_yc"
+api_id = 7305
+api_hash = "59c3069583a89016571ba9eb9d"
+gptkey = "sk-RYz6jrsHTV2QOSqpQy"
 
 import websockets
 from collections import Counter
@@ -49,6 +48,7 @@ from tinydb import TinyDB, Query,where
 from currency_converter import CurrencyConverter
 import sqlite3
 import pytz
+from openai import AsyncOpenAI
 
 sql = sqlite3.connect("sqlite.db")
 fdb = TinyDB('filters.json')
@@ -62,11 +62,45 @@ app = Client("spider",api_id,api_hash,workers=50) #pyrogram userbot client
 bot = Client("spider_bot",api_id,api_hash,bot_token=bot_token) # pyrogram bot client 
 ptb = Application.builder().token(bot_token).concurrent_updates(8).connection_pool_size(16).build() #python-telegram-bot client 
 tlbot = TelegramClient("telethon", api_id, api_hash)
+client = AsyncOpenAI(api_key=gptkey)
 tlbot.start(bot_token=bot_token)
 bot.start()
   
+
+from urllib.request import urlopen,Request
+def headurl(url,xx="Noe",yy="Noe"):
+  urlx = BeautifulSoup(urlopen(Request(url,headers={'User-Agent': 'Mozilla/5.0'})).read(),'html.parser').text.replace("Play Games","").replace("View all games","").replace("Roulette","").replace("Blackjack","").replace("Match Over","").replace("Slots","").replace("Trending","").replace("In-Play","").replace("Match view   Match Stats          Live on Sky Sports Cricket & Sky Sports Main Event","").replace("Play Now","").split("\n")
+  list = []
+  for x in urlx:   
+   if x.strip():
+     list.append(x)
+  urlx = "\n".join(list).split("Your bets have changed.")[-1].split("View odds as:")[0]
+  if not (x == "Noe" and y == "Noe"):
+   return "\n".join(urlx.split("\n")[xx:yy])
+  else:
+   return urlx
+
+
 async def progress(current, total):
     print(f"{current * 100 / total:.1f}%")
+
+
+
+@app.on_message(filters.text & filters.regex("^#gpt")) #& (filters.user(usrs) | filters.channel)
+async def chatgpt(c,m):
+ if m.from_user.id == c.me.id:
+  reply=await m.edit("🖥️ Generating...")
+ else:
+  reply=await m.reply("🖥️ Generating...")
+ response = await client.chat.completions.create(messages=[{"role": "user","content": " ".join(m.text.split(" ")[1:])}],model="gpt-3.5-turbo")
+ answer = "**Que. :** `" + " ".join(m.text.split(" ")[1:]) + "`\n\n**Result :** " + response.choices[0].message.content
+ if len(answer) > 4090:
+  return await reply.edit("❌ Result is exceed 4096 character limit..")
+ await reply.edit(answer)
+
+@app.on_edited_message(filters.text & filters.regex("^#ask") & (filters.user(usrs) | filters.channel))
+async def edit(c,m):
+  await chatgpt(c,m)
 
 import time
 @app.on_message(filters.command("dialog",prefixes=[".","!","/"]) & (filters.user(usrs) | filters.channel))
@@ -196,24 +230,6 @@ async def delete(c,m):
 
 @app.on_message(filters.user(usrs) | filters.channel)
 async def rfilter(c,m):
-  if m.chat.type == pyrogram.enums.ChatType.CHANNEL and (await c.get_chat_member(m.chat.id,(await app.get_me()).id)).status == pyrogram.enums.ChatMemberStatus.MEMBER:
-    return
-  if m.entities:
-   is_urls = []
-   for entitys in m.entities:
-    if entitys.type == pyrogram.enums.MessageEntityType.URL:
-     is_urls = True
-     break
-   if is_urls:
-    text = m.text
-    entities = []
-    for entity in m.entities:
-      if entity.type == pyrogram.enums.MessageEntityType.URL:
-         entities.append(m.text[entity.offset:(entity.offset+entity.length)])
-    entities = [e for e in Counter(entities)]
-    for entitynies in entities:
-       text = text.replace(entitynies,f"""<a href="{entitynies}">check link</a>""")
-    await m.edit(text,disable_web_page_preview=True)
   if not m.reply_to_message:
     return
   try:
@@ -225,4 +241,3 @@ async def rfilter(c,m):
      await m.delete()
 
 app.run()
-
