@@ -5,71 +5,38 @@ api_id = 7305
 api_hash = "59c30695447f9016571ba9eb9d"
 gpt_api = "sk-rgzTV2QOqpQy"
 
-from pytgcalls import PyTgCalls
-from pytgcalls import idle
-from pytgcalls.types import MediaStream
-import websockets
-from collections import Counter
+import pyrogram
 from pyrogram import Client, filters 
 from pyrogram.raw import functions, types
-import time
-from bs4 import BeautifulSoup
-from urllib.request import urlopen,Request
+from pyrogram.enums import ChatMemberStatus,ChatType
 import telethon
 from telethon import TelegramClient, sync
-from pyrogram.enums import ChatMemberStatus,ChatType
-from async_eval import eval as async_eval
-import datetime
 import telegram
 from telegram.ext import Application
 from telegram.constants import ParseMode
+import time
+from async_eval import eval as async_eval
+import datetime
 import os
 import io
 import sys
 import platform
-import qrcode
 import asyncio
-import yt_dlp
-from io import StringIO
-import emoji
-import math
-import calendar
-import socket
 import requests
 import random
-import pickle
-from SafoneAPI import SafoneAPI
 import json
-import gtts
 import wget
-import re
-import PIL
-from gtts import gTTS as tts
 import speedtest
-import pyrogram
-from dotmap import DotMap
-from tinydb import TinyDB, Query,where
-from currency_converter import CurrencyConverter
-import sqlite3
-import pytz
 from openai import AsyncOpenAI
-from urllib.request import urlopen,Request
 
-sql = sqlite3.connect("sqlite.db")
-fdb = TinyDB('filters.json')
-db = TinyDB('db.json')
-cc = CurrencyConverter()
-sapi = SafoneAPI()
+
 app = Client("spider",api_id,api_hash,workers=50) #pyrogram userbot client 
-sapp = PyTgCalls(app)
-sapp.start()
 bot = Client("spider_bot",api_id,api_hash,bot_token=bot_token) # pyrogram bot client 
 ptb = Application.builder().token(bot_token).concurrent_updates(8).connection_pool_size(16).build() #python-telegram-bot client 
 tlbot = TelegramClient("telethon", api_id, api_hash)
-tlbot.start(bot_token=bot_token)
 client = AsyncOpenAI(api_key=gpt_api)
+tlbot.start(bot_token=bot_token)
 bot.start()
-
 
 async def progress(current, total):
     print(f"{current * 100 / total:.1f}%")
@@ -151,4 +118,4 @@ async def delete(c,m):
    return
 
 
-idle()
+app.run()
