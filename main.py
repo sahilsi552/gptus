@@ -3,7 +3,7 @@ owner = 6828102589
 bot_token = "6770432240:AAHFiOxSD3SfVQ4ZqqKnurgpn02rmz19ne4"
 api_id = 3595472
 api_hash = "1e1f25564047e2994d35ef7785ab6f04"
-gpt_api = "sk-rgzTV2QOqpQy"
+gpt_api = "sk-proj-9H4j5ZR0cymZWsVxlgR4T3BlbkFJ5v7hizv5ZkckcQ2h7AGI"
 
 import pyrogram
 from pyrogram import Client, filters 
