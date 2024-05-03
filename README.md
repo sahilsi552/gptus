@@ -1,3 +1,6 @@
+git clone https://github.com/sahilsi552/gptus && cd gptus
+
+
 **Install requirements:**
 
 ```pip3 install -r requirements.txt```
