@@ -1,8 +1,8 @@
 usrs = ["me",491139,52670]
-owner = 5935287
-bot_token = "619148ePg71K4dTrTlUYfZ0sF4LYNpks_yc"
-api_id = 7305
-api_hash = "59c30695447f9016571ba9eb9d"
+owner = 6828102589
+bot_token = "6770432240:AAHFiOxSD3SfVQ4ZqqKnurgpn02rmz19ne4"
+api_id = 3595472
+api_hash = "1e1f25564047e2994d35ef7785ab6f04"
 gpt_api = "sk-rgzTV2QOqpQy"
 
 import pyrogram
