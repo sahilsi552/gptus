@@ -41,7 +41,7 @@ bot.start()
 async def progress(current, total):
     print(f"{current * 100 / total:.1f}%")
 
-@app.on_message(filters.text & filters.regex("^#gpt")) #& (filters.user(usrs) | filters.channel)
+@app.on_message(filters.text & filters.regex("^#tmkc")) #& (filters.user(usrs) | filters.channel)
 async def chatgpt(c,m):
  m.text = eval(f'f"""{m.text}"""')
  if m.text.split(" ")[1] == "img":
