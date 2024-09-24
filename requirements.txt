@@ -1,2 +1,2 @@
 async-eval==0.1.11
-pyrogram==pip install https://github.com/KurimuzonAkuma/pyrogram/archive/v2.1.28.zip
+pyrogram==https://github.com/KurimuzonAkuma/pyrogram/archive/v2.1.28.zip
