@@ -1,19 +1,2 @@
 async-eval==0.1.11
-pyrogram==2.0.97
-qrcode
-python-telegram-bot==20.0
-tgcrypto
-yt-dlp
-CurrencyConverter
-requests
-SafoneAPI
-dotmap
-emoji
-gTTS
-wget
-bs4
-calendar-cli
-speedtest-cli
-tinydb==4.7.1
-Telethon==1.27.0
-openai
+pyrogram==pip install https://github.com/KurimuzonAkuma/pyrogram/archive/v2.1.28.zip
