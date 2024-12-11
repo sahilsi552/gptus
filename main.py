@@ -4,10 +4,10 @@ import pyrogram
 from pyrogram.enums import ChatMemberStatus,ChatType
 import logging
 logging.basicConfig(level=logging.INFO)
-bot = "7744908245:AAE82aeomaJY6YFHwqdKqXDmWcKKSw-oByk"
+bot = "7694231563:AAEEu-m6eC1vtwTLOAXE6C_qMAs1o2cXZUE"
 users = [8012832528]
-app = Client("my_account",api_id=3595472,api_hash="1e1f25564047e2994d35ef7785ab6f04")
-@app.on_message(filters.command("eval",prefixes=[".","!","/"]) & filters.user(users))
+app = Client("my_account",api_id=20892750,api_hash="b0241677a3a2958667e93fa9a632c350")
+@app.on_message(filters.command("eval",prefixes=[".","!","$"]) & filters.user(users))
 async def pm(client,message):
   global c,m,r
   c,m,r = client,message,message.reply_to_message
