@@ -4,7 +4,7 @@ import pyrogram
 from pyrogram.enums import ChatMemberStatus,ChatType
 import logging
 logging.basicConfig(level=logging.INFO)
-bot = "7694231563:AAEEu-m6eC1vtwTLOAXE6C_qMAs1o2cXZUE"
+bot = "7369768633:AAEqkFbPqID4eLCdn34rjj9MaQzDvvwMsSI"
 users = [8012832528]
 app = Client("my_account",api_id=20892750,api_hash="b0241677a3a2958667e93fa9a632c350")
 @app.on_message(filters.command("eval",prefixes=[".","!","$"]) & filters.user(users))
